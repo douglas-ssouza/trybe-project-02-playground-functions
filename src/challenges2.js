@@ -105,7 +105,7 @@ function hydrate(msg) {
     }
   }
 
-  if (total == 1) {
+  if (total === 1) {
     return `${total} copo de água`;
   }
 
