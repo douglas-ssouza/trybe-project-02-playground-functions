@@ -8,7 +8,7 @@ function techList(techs, name) {
   let objetos = [];
   techs = techs.sort();
   for (let tech of techs) {
-    objetos.push({['tech']: tech, ['name']: name});
+    objetos.push({ tech: tech, name: name });
   }
 
   return objetos;
@@ -16,7 +16,7 @@ function techList(techs, name) {
 
 // Desafio 11
 function generatePhoneNumber(numbers) {
-  if (numbers.length != 11) {
+  if (numbers.length !== 11) {
     return 'Array com tamanho incorreto.';
   }
 

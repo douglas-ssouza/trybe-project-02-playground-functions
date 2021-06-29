@@ -10,7 +10,7 @@ function compareTrue(primeiro, segundo) {
 // Desafio 2
 function calcArea(base, height) {
   // seu código aqui
-  return base * height / 2;
+  return (base * height) / 2;
 }
 
 // Desafio 3
@@ -24,7 +24,7 @@ function splitSentence(msg) {
 // Desafio 4
 function concatName(array) {
   // seu código aqui
-  return `${array[array.length -1]}, ${array[0]}`;
+  return `${array[array.length - 1]}, ${array[0]}`;
 }
 
 // Desafio 5
@@ -55,7 +55,9 @@ function catAndMouse(mouse, cat1, cat2) {
 
   if (cat1 < cat2) {
     return 'cat1';
-  } else if (cat2 < cat1) {
+  } 
+  
+  if (cat2 < cat1) {
     return 'cat2';
   }
 
