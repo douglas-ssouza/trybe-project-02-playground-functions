@@ -68,8 +68,48 @@ function triangleCheck(lineA, lineB, lineC) {
 }
 
 // Desafio 13
-function hydrate() {
+function hydrate(msg) {
   // seu código aqui
+  let total = 0;
+  for (let index in msg) {
+    if (msg.charCodeAt(index) >= 49 && msg.charCodeAt(index) <= 57) {
+      switch (msg.charCodeAt(index)) {
+        case 49:
+          total += 1;
+          break;
+        case 50:
+          total += 2;
+          break;
+        case 51:
+          total += 3;
+          break;
+        case 52:
+          total += 4;
+          break;
+        case 53:
+          total += 5;
+          break;
+        case 54:
+          total += 6;
+          break;
+        case 55:
+          total += 7;
+          break;
+        case 56:
+          total += 8;
+          break;
+        case 57:
+          total += 9;
+          break;
+      }
+    }
+  }
+
+  if (total == 1) {
+    return `${total} copo de água`;
+  }
+
+  return `${total} copos de água`;
 }
 
 module.exports = {
