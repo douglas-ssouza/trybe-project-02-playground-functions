@@ -60,7 +60,7 @@ function generatePhoneNumber(numbers) {
 // Desafio 12
 function triangleCheck(lineA, lineB, lineC) {
   // seu código aqui
-  if (lineA < lineB + lineC && lineB < lineC + lineA && lineC < lineA + lineB) {
+  if (lineA < lineB + lineC && lineA > Math.abs(lineB - lineC)) {
     return true;
   }
 
@@ -74,33 +74,33 @@ function hydrate(msg) {
   for (let index in msg) {
     if (msg.charCodeAt(index) >= 49 && msg.charCodeAt(index) <= 57) {
       switch (msg.charCodeAt(index)) {
-        case 49:
-          total += 1;
-          break;
-        case 50:
-          total += 2;
-          break;
-        case 51:
-          total += 3;
-          break;
-        case 52:
-          total += 4;
-          break;
-        case 53:
-          total += 5;
-          break;
-        case 54:
-          total += 6;
-          break;
-        case 55:
-          total += 7;
-          break;
-        case 56:
-          total += 8;
-          break;
-        case 57:
-          total += 9;
-          break;
+      case 49:
+        total += 1;
+        break;
+      case 50:
+        total += 2;
+        break;
+      case 51:
+        total += 3;
+        break;
+      case 52:
+        total += 4;
+        break;
+      case 53:
+        total += 5;
+        break;
+      case 54:
+        total += 6;
+        break;
+      case 55:
+        total += 7;
+        break;
+      case 56:
+        total += 8;
+        break;
+      case 57:
+        total += 9;
+        break;
       }
     }
   }

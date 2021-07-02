@@ -55,8 +55,8 @@ function catAndMouse(mouse, cat1, cat2) {
 
   if (cat1 < cat2) {
     return 'cat1';
-  } 
-  
+  }
+
   if (cat2 < cat1) {
     return 'cat2';
   }
@@ -69,7 +69,7 @@ function fizzBuzz(array) {
   // seu código aqui
   let array2 = [];
   for (let valor of array) {
-    if (valor % 3 === 0 && valor % 5 === 0) {
+    if (valor % 15 === 0) {
       array2.push('fizzBuzz');
     } else if (valor % 3 === 0) {
       array2.push('fizz');
@@ -89,24 +89,24 @@ function encode(msg) {
   let codMsg = '';
   for (let letter of msg) {
     switch (letter) {
-      case 'a':
-        codMsg += '1';
-        break;
-      case 'e':
-        codMsg += '2';
-        break;
-      case 'i':
-        codMsg += '3';
-        break;
-      case 'o':
-        codMsg += '4';
-        break;
-      case 'u':
-        codMsg += '5';
-        break;
-      default:
-        codMsg += letter;
-        break;
+    case 'a':
+      codMsg += '1';
+      break;
+    case 'e':
+      codMsg += '2';
+      break;
+    case 'i':
+      codMsg += '3';
+      break;
+    case 'o':
+      codMsg += '4';
+      break;
+    case 'u':
+      codMsg += '5';
+      break;
+    default:
+      codMsg += letter;
+      break;
     }
   }
   return codMsg;
@@ -116,24 +116,24 @@ function decode(codMsg) {
   let msg = '';
   for (let letter of codMsg) {
     switch (letter) {
-      case '1':
-        msg += 'a';
-        break;
-      case '2':
-        msg += 'e';
-        break;
-      case '3':
-        msg += 'i';
-        break;
-      case '4':
-        msg += 'o';
-        break;
-      case '5':
-        msg += 'u';
-        break;
-      default:
-        msg += letter;
-        break;
+    case '1':
+      msg += 'a';
+      break;
+    case '2':
+      msg += 'e';
+      break;
+    case '3':
+      msg += 'i';
+      break;
+    case '4':
+      msg += 'o';
+      break;
+    case '5':
+      msg += 'u';
+      break;
+    default:
+      msg += letter;
+      break;
     }
   }
   return msg;
