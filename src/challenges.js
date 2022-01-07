@@ -19,110 +19,51 @@ function footballPoints(wins, ties) {
   return wins * 3 + ties;
 }
 
-// Desafio 6
-function highestCount(array) {
-  // seu código aqui
-  let maior = Math.max.apply(null, array);
-  let quant = 0;
-  for (let valor of array) {
-    if (valor === maior) {
-      quant += 1;
-    }
-  }
-
-  return quant;
+function highestCount(values) {
+  const highest = Math.max(...values);
+  return values.reduce((acc, curr) => (curr === highest ? acc + 1 : acc), 0);
 }
 
-// Desafio 7
 function catAndMouse(mouse, cat1, cat2) {
-  // seu código aqui
-  cat1 = Math.abs(mouse - cat1);
-  cat2 = Math.abs(mouse - cat2);
+  const dist1 = Math.abs(cat1 - mouse);
+  const dist2 = Math.abs(cat2 - mouse);
 
-  if (cat1 < cat2) {
-    return 'cat1';
-  }
-
-  if (cat2 < cat1) {
-    return 'cat2';
-  }
-
+  if (dist1 < dist2) return 'cat1';
+  if (dist2 < dist1) return 'cat2';
   return 'os gatos trombam e o rato foge';
 }
 
-// Desafio 8
-function fizzBuzz(array) {
-  // seu código aqui
-  let array2 = [];
-  for (let valor of array) {
-    if (valor % 15 === 0) {
-      array2.push('fizzBuzz');
-    } else if (valor % 3 === 0) {
-      array2.push('fizz');
-    } else if (valor % 5 === 0) {
-      array2.push('buzz');
-    } else {
-      array2.push('bug!');
+function fizzBuzz(numbers) {
+  return numbers.map((number) => {
+    if (number % 15 === 0) {
+      return 'fizzBuzz';
     }
-  }
-
-  return array2;
+    if (number % 3 === 0) {
+      return 'fizz';
+    }
+    if (number % 5 === 0) {
+      return 'buzz';
+    }
+    return 'bug!';
+  });
 }
 
-// Desafio 9
-function encode(msg) {
-  // seu código aqui
-  let codMsg = '';
-  for (let letter of msg) {
-    switch (letter) {
-    case 'a':
-      codMsg += '1';
-      break;
-    case 'e':
-      codMsg += '2';
-      break;
-    case 'i':
-      codMsg += '3';
-      break;
-    case 'o':
-      codMsg += '4';
-      break;
-    case 'u':
-      codMsg += '5';
-      break;
-    default:
-      codMsg += letter;
-      break;
-    }
-  }
-  return codMsg;
+function encode(string) {
+  string = string.replace(/a/g, 1);
+  string = string.replace(/e/g, 2);
+  string = string.replace(/i/g, 3);
+  string = string.replace(/o/g, 4);
+  string = string.replace(/u/g, 5);
+  return string;
 }
-function decode(codMsg) {
-  // seu código aqui
-  let msg = '';
-  for (let letter of codMsg) {
-    switch (letter) {
-    case '1':
-      msg += 'a';
-      break;
-    case '2':
-      msg += 'e';
-      break;
-    case '3':
-      msg += 'i';
-      break;
-    case '4':
-      msg += 'o';
-      break;
-    case '5':
-      msg += 'u';
-      break;
-    default:
-      msg += letter;
-      break;
-    }
-  }
-  return msg;
+
+function decode(string) {
+  string = string.replace(/1/g, 'a');
+  string = string.replace(/2/g, 'e');
+  string = string.replace(/3/g, 'i');
+  string = string.replace(/4/g, 'o');
+  string = string.replace(/5/g, 'u');
+  return string;  
 }
 
 module.exports = {
