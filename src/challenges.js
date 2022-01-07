@@ -1,35 +1,21 @@
-// Desafio 1
-function compareTrue(primeiro, segundo) {
-  // seu código aqui
-  if (primeiro && segundo) {
-    return true;
-  }
-  return false;
+function compareTrue(first, second) {
+  return first && second;
 }
 
-// Desafio 2
 function calcArea(base, height) {
-  // seu código aqui
   return (base * height) / 2;
 }
 
-// Desafio 3
 function splitSentence(msg) {
-  // seu código aqui
-  let array = msg.split(' ');
-
-  return array;
+  return msg.split(' ');
 }
+console.log(splitSentence('Meu nome é Douglas'));
 
-// Desafio 4
 function concatName(array) {
-  // seu código aqui
   return `${array[array.length - 1]}, ${array[0]}`;
 }
 
-// Desafio 5
 function footballPoints(wins, ties) {
-  // seu código aqui
   return wins * 3 + ties;
 }
 
