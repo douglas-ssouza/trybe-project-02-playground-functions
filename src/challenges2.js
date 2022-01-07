@@ -1,17 +1,7 @@
 // Desafio 10
 function techList(techs, nome) {
   // seu código aqui
-  if (techs.length === 0) {
-    return 'Vazio!';
-  }
-
-  let objetos = [];
-  techs = techs.sort();
-  for (let item of techs) {
-    objetos.push({ tech: item, name: nome });
-  }
-
-  return objetos;
+  return techs.length === 0 ? 'Vazio!' : techs.sort().map((item) => ({ tech: item, name: nome}));
 }
 
 function verificaDigitos(numbers) {
@@ -88,35 +78,7 @@ function getTotal(msg) {
   let total = 0;
   for (let index in msg) {
     if (msg.charCodeAt(index) >= 49 && msg.charCodeAt(index) <= 57) {
-      switch (msg.charCodeAt(index)) {
-      case 49:
-        total += 1;
-        break;
-      case 50:
-        total += 2;
-        break;
-      case 51:
-        total += 3;
-        break;
-      case 52:
-        total += 4;
-        break;
-      case 53:
-        total += 5;
-        break;
-      case 54:
-        total += 6;
-        break;
-      case 55:
-        total += 7;
-        break;
-      case 56:
-        total += 8;
-        break;
-      case 57:
-        total += 9;
-        break;
-      }
+      total += Number(msg[index]);
     }
   }
 
@@ -125,13 +87,9 @@ function getTotal(msg) {
 
 function hydrate(msg) {
   // seu código aqui
-  let total = getTotal(msg);
+  const total = getTotal(msg);
 
-  if (total === 1) {
-    return `${total} copo de água`;
-  }
-
-  return `${total} copos de água`;
+  return total === 1 ? '1 copo de água' : `${total} copos de água`;
 }
 
 module.exports = {
