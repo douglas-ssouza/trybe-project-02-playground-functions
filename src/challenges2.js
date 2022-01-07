@@ -1,95 +1,51 @@
-// Desafio 10
 function techList(techs, nome) {
-  // seu código aqui
-  return techs.length === 0 ? 'Vazio!' : techs.sort().map((item) => ({ tech: item, name: nome}));
+  return techs.length === 0 
+    ? 'Vazio!'
+    : techs.sort().map((item) => ({ tech: item, name: nome}));
 }
 
-function verificaDigitos(numbers) {
-  for (let number of numbers) {
-    if (number < 0 || number > 9) {
-      return true;
-    }
-  }
-
-  return false;
+function countNumber(number, array) {
+  return array.reduce((acc, res) => (number === res ? acc + 1 : acc), 0);
 }
 
-function verificaQuantidade(numbers) {
-  let quant = 0;
-  for (let index = 0; index < numbers.length; index += 1) {
-    for (let index2 = 0; index2 < numbers.length; index2 += 1) {
-      if (numbers[index] === numbers[index2]) {
-        quant += 1;
-        if (quant >= 3) {
-          return true;
-        }
-      }
-    }
-    quant = 0;
-  }
-
-  return false;
-}
-
-// Desafio 11
 function generatePhoneNumber(numbers) {
   if (numbers.length !== 11) {
     return 'Array com tamanho incorreto.';
   }
 
-  if (verificaDigitos(numbers)) {
+  if (numbers.some((number) => number < 0 || number > 9)
+    || numbers.some((number) => countNumber(number, numbers) >= 3)) {
     return 'não é possível gerar um número de telefone com esses valores';
   }
 
-  if (verificaQuantidade(numbers)) {
-    return 'não é possível gerar um número de telefone com esses valores';
-  }
+  const phoneNumber = numbers;
+  phoneNumber.splice(0, 0, '(');
+  phoneNumber.splice(3, 0, ') ');
+  phoneNumber.splice(9, 0, '-');
 
-  let phoneNumber = '';
-  for (let index = 0; index < numbers.length; index += 1) {
-    if (index === 0) {
-      phoneNumber += '(';
-    }
-    if (index === 2) {
-      phoneNumber += ') ';
-    }
-    if (index === 7) {
-      phoneNumber += '-';
-    }
-
-    phoneNumber += numbers[index];
-  }
-
-  return phoneNumber;
+  return phoneNumber.join('');
 }
 
-// Desafio 12
+function checkSumOfSides(lineA, lineB, lineC) {
+  return lineA + lineB > lineC && lineA + lineC > lineB && lineB + lineC > lineA;
+}
+
+function checkAbsDifference(lineA, lineB, lineC) {
+  return lineA > Math.abs(lineB - lineC)
+    && lineB > Math.abs(lineA - lineC)
+    && lineC > Math.abs(lineA - lineB);
+}
+
 function triangleCheck(lineA, lineB, lineC) {
-  // seu código aqui
-  if (lineA < lineB + lineC && lineA > Math.abs(lineB - lineC)) {
-    return true;
-  }
-
-  return false;
+  return checkSumOfSides(lineA, lineB, lineC) && checkAbsDifference(lineA, lineB, lineC);
 }
 
-// Desafio 13
-function getTotal(msg) {
-  let total = 0;
-  for (let index in msg) {
-    if (msg.charCodeAt(index) >= 49 && msg.charCodeAt(index) <= 57) {
-      total += Number(msg[index]);
-    }
-  }
+function hydrate(string) {
+  const total = string.match(/\d/g).reduce(
+    (acc, res) => acc + Number(res), 0,
+  );
 
-  return total;
-}
-
-function hydrate(msg) {
-  // seu código aqui
-  const total = getTotal(msg);
-
-  return total === 1 ? '1 copo de água' : `${total} copos de água`;
+  return total > 1 ? `${total} copos de água` : '1 copo de água';
 }
 
 module.exports = {
